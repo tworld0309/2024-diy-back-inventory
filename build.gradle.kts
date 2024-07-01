@@ -1,3 +1,4 @@
+import org.gradle.api.tasks.testing.logging.TestLogEvent
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
@@ -55,6 +56,12 @@ dependencies {
     // spring cloud config
     //implementation("org.springframework.cloud:spring-cloud-starter-config")
     //implementation("org.springframework.cloud:spring-cloud-starter-bootstrap")
+
+    // JUnit & Spring Rest Docs
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
+    testImplementation("org.mockito:mockito-core")
+    testImplementation("org.springframework.restdocs:spring-restdocs-mockmvc")
+    testImplementation("org.springframework.restdocs:spring-restdocs-webtestclient")
 }
 
 tasks.withType<KotlinCompile> {
@@ -66,4 +73,15 @@ tasks.withType<KotlinCompile> {
 
 tasks.withType<Test> {
     useJUnitPlatform()
+}
+
+val snippetsDir = file("build/generated-snippets")
+
+tasks.test {
+    useJUnitPlatform()
+    outputs.dir(snippetsDir)
+
+    testLogging {
+        events(TestLogEvent.FAILED, TestLogEvent.SKIPPED)
+    }
 }
