@@ -30,7 +30,7 @@ dependencies {
     //implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.jetbrains.kotlin:kotlin-reflect:2.0.0-RC2")
 
-    //implementation(group = "org.mariadb.jdbc", name = "mariadb-java-client", version = "3.1.2")
+    implementation("org.postgresql:postgresql:42.7.3")
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-validation")
     implementation("org.springdoc", name = "springdoc-openapi-starter-webmvc-ui", version = "2.0.2")

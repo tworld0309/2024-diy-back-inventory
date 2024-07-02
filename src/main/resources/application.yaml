@@ -1,22 +1,25 @@
 spring:
   application:
     name: inventory
-#  datasource:
-#    driver-class-name: org.mariadb.jdbc.Driver
-#    url: jdbc:mariadb://localhost:3306/msa
-#    username: backend
-#    password: backend
-#  jpa:
-#    database-platform: org.hibernate.dialect.MariaDBDialect
-#    hibernate:
-#      ddl-auto: create
-#    show-sql: true
-#    properties:
-#      hibernate:
-#        format_sql: true
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/mydatabase
+    username: myuser
+    password: mypassword
+  jpa:
+    database: postgresql
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        show_sql: true
+        use_sql_comments: true
+    open-in-view: false
 
 server:
-  port: 9090
+  port: 8080
 
 logging:
   file:
@@ -26,3 +29,4 @@ logging:
   level:
     root: info
     diy.user: debug
+
